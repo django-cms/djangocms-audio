@@ -1,0 +1,17 @@
+<!-- https://github.com/divio/django-filer/blob/develop/filer/models/filemodels.py -->
+
+<pre>
+    Folder:
+    {{ instance.folder }}
+    {{ instance.folder.file_count }}
+    {{ instance.is_published }}
+    Files:
+    {% for instance in instance.folder.files %}
+        {{ instance.file }} {{ instance.name }}
+        {{ instance.description }}
+        {{ instance.uploaded_at }}
+        {{ instance.modified_at }}
+        {{ instance.size }}
+        {{ instance.extension }}
+    {% endfor %}
+</pre>

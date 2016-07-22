@@ -1,0 +1,15 @@
+{% load cms_tags %}
+
+<pre>
+    Player
+    {{ instance.template }}
+    {{ instance.label }}
+    {{ instance.attributes }}
+    {{ instance.attributes_str }}
+</pre>
+
+<hr>
+
+{% for plugin in instance.child_plugin_instances %}
+    {% render_plugin plugin %}
+{% endfor %}
