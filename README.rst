@@ -11,8 +11,8 @@ This addon is an `Aldryn <http://aldryn.com>`_-compatible audio plugin for
 `django CMS Marketplace
 <https://marketplace.django-cms.org/en/addons/browse/djangocms-googlemap/>`_.
 
-It allows you to upload a single file or an entire folder. The templates are
-very simplistic by choice and we encourage you to adapt them to your
+It allows you to upload a single file or select an entire folder. The templates 
+are very simplistic by choice and we encourage you to adapt them to your
 projects requirements.
 
 .. image:: preview.gif
