@@ -3,7 +3,7 @@ django CMS Audio
 ################
 
 
-|PyPI Version| |Build Status| |Coverage Status|
+|pypi| |build| |coverage|
 
 
 This addon is an `Aldryn <http://aldryn.com>`_-compatible audio plugin for
@@ -65,11 +65,11 @@ You can run the tests by using::
     python runtests.py
 
 
-.. |PyPI_Version| image:: https://badge.fury.io/py/djangocms-audio.svg
+.. |pypi| image:: https://badge.fury.io/py/djangocms-audio.svg
     :target: http://badge.fury.io/py/djangocms-audio
-.. |Build_Status| image:: https://travis-ci.org/divio/djangocms-audio.svg?branch=master
+.. |build| image:: https://travis-ci.org/divio/djangocms-audio.svg?branch=master
     :target: https://travis-ci.org/divio/djangocms-video
-.. |Coverage_Status| image:: https://coveralls.io/repos/github/divio/djangocms-audio/badge.svg?branch=master
+.. |coverage| image:: https://coveralls.io/repos/github/divio/djangocms-audio/badge.svg?branch=master
     :target: https://coveralls.io/github/divio/djangocms-audio?branch=master
 
 
