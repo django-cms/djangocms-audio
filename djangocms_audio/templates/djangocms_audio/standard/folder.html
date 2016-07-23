@@ -6,12 +6,18 @@
     {{ instance.folder.file_count }}
     {{ instance.is_published }}
     Files:
-    {% for instance in instance.folder.files %}
-        {{ instance.file }} {{ instance.name }}
-        {{ instance.description }}
-        {{ instance.uploaded_at }}
-        {{ instance.modified_at }}
-        {{ instance.size }}
-        {{ instance.extension }}
+    {% for plugin in instance.folder.files %}
+        {{ plugin.file }} {{ instance.name }}
+        {{ plugin.description }}
+        {{ plugin.uploaded_at }}
+        {{ plugin.modified_at }}
+        {{ plugin.size }}
+        {{ plugin.extension }}
+        {% if plugin.extension == "mp3" %}
+            <audio controls
+                {% if plugin.attributes %}{{ plugin.attributes_str }}{% endif %}>
+                <source src="{{ plugin.file.url }}" type="audio/mpeg">
+            </audio>
+        {% endif %}
     {% endfor %}
 </pre>

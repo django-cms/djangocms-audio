@@ -7,3 +7,8 @@
     {{ instance.text_transcript }}
     {{ instance.attributes_str }}
 </pre>
+
+<audio controls
+    {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
+    <source src="{{ instance.file.url }}" type="audio/mpeg">
+</audio>
