@@ -1,23 +1,20 @@
-<!-- https://github.com/divio/django-filer/blob/develop/filer/models/filemodels.py -->
+{% load i18n %}
 
-<pre>
-    Folder:
+{% for plugin in instance.folder.files %}
+    {# mp3 files are supported by any major browser #}
+    {% if plugin.extension == "mp3" %}
+        <audio controls
+            {% if plugin.attributes %}{{ plugin.attributes_str }}{% endif %}>
+            <source src="{{ plugin.file.url }}" type="audio/mpeg">
+        </audio>
+    {% endif %}
+{% empty %}
+    {% trans "No valid files were found within the given folder." %}
+{% endfor %}
+{% comment %}
+    # https://github.com/divio/django-filer/blob/master/filer/models/foldermodels.py
     {{ instance.folder }}
+    # Available variables:
     {{ instance.folder.file_count }}
     {{ instance.is_published }}
-    Files:
-    {% for plugin in instance.folder.files %}
-        {{ plugin.file }} {{ instance.name }}
-        {{ plugin.description }}
-        {{ plugin.uploaded_at }}
-        {{ plugin.modified_at }}
-        {{ plugin.size }}
-        {{ plugin.extension }}
-        {% if plugin.extension == "mp3" %}
-            <audio controls
-                {% if plugin.attributes %}{{ plugin.attributes_str }}{% endif %}>
-                <source src="{{ plugin.file.url }}" type="audio/mpeg">
-            </audio>
-        {% endif %}
-    {% endfor %}
-</pre>
+{% endcomment %}

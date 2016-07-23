@@ -1,14 +1,20 @@
-<pre>
-    File:
+{% load i18n %}
+
+{% if plugin.extension == "mp3" %}
+    <audio controls
+        {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
+        <source src="{{ instance.file.url }}" type="audio/mpeg">
+    </audio>
+{% else %}
+    {% trans "Please provide a correct mp3 file format." %}
+{% endif %}
+{% comment %}
+    # https://github.com/divio/django-filer/blob/master/filer/models/filemodels.py
     {{ instance.file }}
+    # Available variables:
     {{ instance.is_published }}
     {{ instance.text_title }}
     {{ instance.text_description }}
     {{ instance.text_transcript }}
     {{ instance.attributes_str }}
-</pre>
-
-<audio controls
-    {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
-    <source src="{{ instance.file.url }}" type="audio/mpeg">
-</audio>
+{% endcomment %}

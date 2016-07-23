@@ -2,16 +2,13 @@
 {% load cms_tags %}
 
 {% block djangocms_audio %}
-    <pre>
-        Player
-        {{ instance.template }}
-        {{ instance.label }}
-        {{ instance.attributes_str }}
-    </pre>
-
-    <hr>
-
     {% for plugin in instance.child_plugin_instances %}
         {% render_plugin plugin %}
     {% endfor %}
 {% endblock %}
+{% comment %}
+    # Available variables:
+    {{ instance.template }}
+    {{ instance.label }}
+    {{ instance.attributes_str }}
+{% endcomment %}
