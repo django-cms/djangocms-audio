@@ -7,11 +7,8 @@ django CMS Audio
 
 
 This addon is an `Aldryn <http://aldryn.com>`_-compatible audio plugin for
-`django CMS <http://django-cms.org>`_. It provides the following plugins:
-
-* Audio Player
-  * Single file
-  * Entire folder
+`django CMS <http://django-cms.org>`_. It allows you to upload a single file
+or an entire folder.
 
 .. image:: preview.gif
 
@@ -54,6 +51,21 @@ To install it manuall:
 * run ``python manage.py migrate djangocms_audio``
 
 
+Configuration
+-------------
+
+This addon provides a ``standard`` template for all instances. You can add
+additional template choices by addin the ``DJANGOCMS_AUDIO_TEMPLATES`` setting::
+
+    TEMPLATE_CHOICES = [
+        ('feature', _('Featured Version')),
+    ]
+
+You'll need to create the `feature` folder inside ``templates/djangocms_audio/``
+otherwise you will get a *template does not exist* error. You can do this by
+simply copying the ``standard`` folder and rename it to ``feature``.
+
+
 Running Tests
 -------------
 
@@ -82,6 +94,5 @@ TODO
 - How to pin requirements correctly (>=2.3?)
 - Check strings in model labels, uppercase, lowercase whats the best practice
 - add test suite
-- add screenshot to readme
 - get documentation guideline for how long that section should be until
   we start a docs section
