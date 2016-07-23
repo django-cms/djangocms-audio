@@ -40,7 +40,7 @@ setup(
     long_description=open('README.rst').read(),
     packages=find_packages(),
     include_package_data=True,
-    zip_safe=False
+    zip_safe=False,
     install_requires=REQUIREMENTS,
     classifiers=CLASSIFIERS,
     test_suite='test_settings.run',
