@@ -27,11 +27,15 @@ def get_templates():
         'DJANGOCMS_AUDIO_TEMPLATES',
         False,
     )
-    return choices
+    if choices:
+        return choices
+    return []
 
 
 @python_2_unicode_compatible
 class AudioPlayer(CMSPlugin):
+    DEFAULT_CHOICE = 'standard'
+
     # ``TEMPLATE_CHOICES`` allows you to select different templates on a per
     # plugin basis. Simply copy the ``standard`` folder from within
     # ``/templates/djangocms_audio/`` and add them to your ``STYLE_CHOICES``.
@@ -43,6 +47,7 @@ class AudioPlayer(CMSPlugin):
     template = models.CharField(
         verbose_name=_('Template'),
         choices=TEMPLATE_CHOICES + get_templates(),
+        default=DEFAULT_CHOICE,
         max_length=50,
     )
     label = models.CharField(
