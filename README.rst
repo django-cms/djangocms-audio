@@ -5,15 +5,16 @@ django CMS Audio
 
 |pypi| |build| |coverage|
 
+**django CMS Audio** is a set of plugins for `django CMS <http://django-cms.org>`_
+that allow you to publish audio files on your site (using an HTML5 player by default,
+but you can override this in your own templates if required).
 
-This addon is an `Aldryn <http://aldryn.com>`_-compatible audio plugin for
-`django CMS <http://django-cms.org>`_ and is available on the
-`django CMS Marketplace
-<https://marketplace.django-cms.org/en/addons/browse/djangocms-googlemap/>`_.
+It uses files managed by `Django Filer <https://github.com/divio/django-filer>`_.
+The plugins allow you to select a single file or an entire folder of files.
 
-It allows you to upload a single file or select an entire folder. The templates 
-are very simplistic by choice and we encourage you to adapt them to your
-projects requirements.
+**django CMS Audio** is compatible with `Aldryn <http://aldryn.com>`_ and is also available on the
+`django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-googlemap/>`_
+for easy installation.
 
 .. image:: preview.gif
 
@@ -26,7 +27,7 @@ feedback in the form of issues and pull requests. Before submitting your
 pull request, please review our `contribution guidelines
 <http://docs.django-cms.org/en/latest/contributing/index.html>`_.
 
-One of the easiest contribution is helping to translate this addon on
+One of the easiest contributions you can make is helping to translate this addon on
 `Transifex <https://www.transifex.com/projects/p/djangocms-audio/>`_.
 
 
@@ -57,24 +58,27 @@ For a manual install:
 Configuration
 -------------
 
-This addon provides a ``standard`` template for all instances. You can add
-additional template choices by adding the ``DJANGOCMS_AUDIO_TEMPLATES``
+Note that the provided templates are very minimal by design. You are encouraged
+to adapt and override them to your project's requirements.
+
+This addon provides a ``standard`` template for all instances. You can provide
+additional template choices by adding a ``DJANGOCMS_AUDIO_TEMPLATES``
 setting::
 
-    TEMPLATE_CHOICES = [
+    DJANGOCMS_AUDIO_TEMPLATES = [
         ('feature', _('Featured Version')),
     ]
 
 You'll need to create the `feature` folder inside ``templates/djangocms_audio/``
 otherwise you will get a *template does not exist* error. You can do this by
-copying the ``standard`` folder inside that directory and rename it to
+copying the ``standard`` folder inside that directory and renaming it to
 ``feature``.
 
 
 Running Tests
 -------------
 
-You can run the tests by executing::
+You can run tests by executing::
 
     virtualenv env
     source env/bin/activate
