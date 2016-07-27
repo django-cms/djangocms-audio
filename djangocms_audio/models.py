@@ -164,3 +164,47 @@ class AudioFolder(CMSPlugin):
         # Because we have a ForeignKey, it's required to copy over
         # the reference from the instance to the new plugin.
         self.audio_folder = oldinstance.audio_folder
+
+
+@python_2_unicode_compatible
+class AudioTrack(CMSPlugin):
+    """
+    Renders the HTML <track> element inside <audio>.
+    """
+    KIND_CHOICES = [
+        ('subtitles', _('Subtitles')),
+        ('captions', _('Captions')),
+        ('descriptions', _('Descriptions')),
+        ('chapters', _('Chapters')),
+    ]
+
+    kind = models.CharField(
+        verbose_name=_('Kind'),
+        choices=KIND_CHOICES,
+        max_length=50,
+    )
+    src = FilerFileField(
+        verbose_name=_('Source file'),
+        blank=False,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+    srclang = models.CharField(
+        verbose_name = _('Source language'),
+        blank=True,
+        max_length=10,
+        help_text=_('Examples: "en" or "de" etc.'),
+    )
+    label = models.CharField(
+        verbose_name=_('Label'),
+        blank=True,
+        max_length=200,
+    )
+    attributes = AttributesField(
+        verbose_name=_('Attributes'),
+        blank=True,
+    )
+
+    def __str__(self):
+        return self.kind

@@ -41,7 +41,9 @@ class AudioFilePlugin(CMSPluginBase):
     model = models.AudioFile
     name = _('File')
     module = _('Audio player')
+    allow_children = True
     require_parent = True
+    parent_classes = ['AudioPlayerPlugin']
     child_classes = ['AudioTrackPlugin']
 
     fieldsets = [
@@ -89,6 +91,35 @@ class AudioFolderPlugin(CMSPluginBase):
         return 'djangocms_audio/{}/folder.html'.format(context['audio_template'])
 
 
+class AudioTrackPlugin(CMSPluginBase):
+    model = models.AudioTrack
+    name = _('Track')
+    module = _('Audio player')
+    require_parent = True
+    parent_classes = ['AudioFilePlugin']
+
+    fieldsets = [
+        (None, {
+            'fields': (
+                'kind',
+                'src',
+                'srclang',
+            )
+        }),
+        (_('Advanced settings'), {
+            'classes': ('collapse',),
+            'fields': (
+                'label',
+                'attributes',
+            )
+        })
+    ]
+
+    def get_render_template(self, context, instance, placeholder):
+        return 'djangocms_audio/{}/track.html'.format(context['audio_template'])
+
+
 plugin_pool.register_plugin(AudioPlayerPlugin)
 plugin_pool.register_plugin(AudioFilePlugin)
 plugin_pool.register_plugin(AudioFolderPlugin)
+plugin_pool.register_plugin(AudioTrackPlugin)
