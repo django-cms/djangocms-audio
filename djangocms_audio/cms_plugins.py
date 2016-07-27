@@ -20,7 +20,7 @@ class AudioPlayerPlugin(CMSPluginBase):
                 'label',
             )
         }),
-        (_('Advanced Settings'), {
+        (_('Advanced settings'), {
             'classes': ('collapse',),
             'fields': (
                 'is_active',
@@ -36,7 +36,7 @@ class AudioPlayerPlugin(CMSPluginBase):
 class AudioFilePlugin(CMSPluginBase):
     model = models.AudioFile
     name = _('File')
-    module = _('Audio Player')
+    module = _('Audio player')
     require_parent = True
     parent_classes = ['AudioPlayerPlugin']
 
@@ -47,7 +47,7 @@ class AudioFilePlugin(CMSPluginBase):
                 'text_title',
             )
         }),
-        (_('Advanced Settings'), {
+        (_('Advanced settings'), {
             'classes': ('collapse',),
             'fields': (
                 'text_description',
@@ -65,7 +65,7 @@ class AudioFilePlugin(CMSPluginBase):
 class AudioFolderPlugin(CMSPluginBase):
     model = models.AudioFolder
     name = _('Folder')
-    module = _('Audio Player')
+    module = _('Audio player')
     require_parent = True
     parent_classes = ['AudioPlayerPlugin']
 
@@ -75,7 +75,7 @@ class AudioFolderPlugin(CMSPluginBase):
                 'audio_folder',
             )
         }),
-        (_('Advanced Settings'), {
+        (_('Advanced settings'), {
             'classes': ('collapse',),
             'fields': (
                 'attributes',

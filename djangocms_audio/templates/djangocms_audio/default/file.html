@@ -1,9 +1,13 @@
 {% load i18n %}
 
-<audio controls
-    {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
-    <source src="{{ instance.audio_file.url }}" type="audio/mpeg">
-</audio>
+{% with instance.audio_file.extension as ext %}
+    <audio controls
+        {% if instance.text_title %}title="{{ instance.text_title }}"{% endif %}
+        {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
+        <source src="{{ instance.audio_file.url }}" type="audio/{% if ext == "mp3" %}mpeg{% else %}{{ ext }}{% endif %}">
+        {{ instance.text_description }}
+    </audio>
+{% endwith %}
 
 {% comment %}
     # https://github.com/divio/django-filer/blob/master/filer/models/filemodels.py

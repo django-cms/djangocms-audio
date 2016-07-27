@@ -59,7 +59,7 @@ Configuration
 Note that the provided templates are very minimal by design. You are encouraged
 to adapt and override them to your project's requirements.
 
-This addon provides a ``standard`` template for all instances. You can provide
+This addon provides a ``default`` template for all instances. You can provide
 additional template choices by adding a ``DJANGOCMS_AUDIO_TEMPLATES``
 setting::
 
@@ -72,7 +72,7 @@ otherwise you will get a *template does not exist* error. You can do this by
 copying the ``standard`` folder inside that directory and renaming it to
 ``feature``.
 
-``MP3`` and ``OGG`` files are allowed per default. We recommend using ``MP3``
+``MP3`` and ``OGG`` files are allowed by default. We recommend using ``MP3``
 as it's supported across all major browsers. You can change the default
 setting by overriding::
 

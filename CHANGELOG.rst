@@ -1,9 +1,9 @@
 =========
-CHANGELOG
+Changelog
 =========
 
 
-0.1.0 (UNRELEASED)
+0.1.0 (to be released)
 ==================
 
 * Initial release

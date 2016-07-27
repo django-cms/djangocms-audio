@@ -14,10 +14,10 @@ from filer.fields.folder import FilerFolderField
 
 
 """
-The user should be able to add an "Audio Player" plugin that serves as
+Enables the user to add an "Audio player" plugin that serves as
 a wrapper rendering the player and its options.
 
-The "Audio Player" plugin allows to add either a single "File" or a reference
+The "Audio player" plugin allows to add either a single "File" or a reference
 to a "Folder" as children.
 """
 
@@ -44,16 +44,16 @@ def get_templates():
 
 @python_2_unicode_compatible
 class AudioPlayer(CMSPlugin):
-    DEFAULT_CHOICE = 'standard'
+    """
+    Renders a container around the HTML <audio> elements.
+    """
+    DEFAULT_CHOICE = 'default'
 
-    # ``TEMPLATE_CHOICES`` allows you to select different templates on a per
-    # plugin basis. Simply copy the ``standard`` folder from within
-    # ``/templates/djangocms_audio/`` and add them to your ``STYLE_CHOICES``.
     TEMPLATE_CHOICES = [
         ('default', _('Default')),
     ]
 
-    # The label will be displayed as help text within the structure board view.
+    # The label will be displayed as help text in the structure board view.
     template = models.CharField(
         verbose_name=_('Template'),
         choices=TEMPLATE_CHOICES + get_templates(),
@@ -69,7 +69,6 @@ class AudioPlayer(CMSPlugin):
         verbose_name=_('Is active'),
         default=True,
     )
-    # This enables you to add additional properties such as data attributes.
     attributes = AttributesField(
         verbose_name=_('Attributes'),
         blank=True,
@@ -82,7 +81,7 @@ class AudioPlayer(CMSPlugin):
 @python_2_unicode_compatible
 class AudioFile(CMSPlugin):
     """
-    Render a single file attaching additional meta information.
+    Renders the HTML <audio> element, add params through attributes.
     """
     audio_file = FilerFileField(
         verbose_name=_('File'),
@@ -152,7 +151,7 @@ class AudioFolder(CMSPlugin):
     attributes = AttributesField(
         verbose_name=_('Attributes'),
         blank=True,
-        help_text=_('Applied to all audio file instances.'),
+        help_text=_('Is applied to all audio file instances.'),
     )
 
     def __str__(self):

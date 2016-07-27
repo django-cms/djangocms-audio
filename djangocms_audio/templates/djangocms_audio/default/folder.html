@@ -1,10 +1,12 @@
 {% load i18n %}
 
 {% for file in audio_files %}
-    <audio controls
-        {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
-        <source src="{{ file.file.url }}" type="audio/mpeg">
-    </audio>
+    {% with file.extension as ext %}
+        <audio controls
+            {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
+            <source src="{{ file.file.url }}" type="audio/{% if ext == "mp3" %}mpeg{% else %}{{ ext }}{% endif %}">
+        </audio>
+    {% endwith %}
 {% empty %}
     <p>{% trans "No matching audio files were found in the specified folder." %}</p>
 {% endfor %}
