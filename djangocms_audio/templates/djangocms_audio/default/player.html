@@ -1,0 +1,20 @@
+{% extends "djangocms_audio/base.html" %}
+{% load i18n cms_tags %}
+
+{% block djangocms_audio %}
+    {% if instance.is_active %}
+        {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% empty %}
+            {% trans "No audio file available." %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% comment %}
+    # Available variables:
+    {{ instance.template }}
+    {{ instance.label }}
+    {{ instance.is_active }}
+    {{ instance.attributes_str }}
+{% endcomment %}

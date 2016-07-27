@@ -1,0 +1,26 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+
+sudo: false
+
+env:
+  - TOX_ENV=flake8
+  - TOX_ENV=py27
+  - TOX_ENV=py34
+  # Django 1.8
+  - TOX_ENV=py34-dj18-cms33
+  - TOX_ENV=py34-dj18-cms32
+  - TOX_ENV=py27-dj18-cms33
+  - TOX_ENV=py27-dj18-cms32
+  # Django 1.9
+  - TOX_ENV=py34-dj19-cms33
+  - TOX_ENV=py34-dj19-cms32
+  - TOX_ENV=py27-dj19-cms33
+  - TOX_ENV=py27-dj19-cms32
+
+install:
+  - pip install tox
+
+script:
+  - tox -e $TOX_ENV

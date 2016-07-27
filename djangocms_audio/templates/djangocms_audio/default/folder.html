@@ -1,0 +1,17 @@
+{% load i18n %}
+
+{% for file in audio_files %}
+    <audio controls
+        {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
+        <source src="{{ file.file.url }}" type="audio/mpeg">
+    </audio>
+{% empty %}
+    <p>{% trans "No matching audio files were found in the specified folder." %}</p>
+{% endfor %}
+
+{% comment %}
+    # https://github.com/divio/django-filer/blob/master/filer/models/foldermodels.py
+    {{ instance.audio_folder }}
+    # Available variables:
+    {{ instance.attributes_str }}
+{% endcomment %}

@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<audio controls
+    {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
+    <source src="{{ instance.audio_file.url }}" type="audio/mpeg">
+</audio>
+
+{% comment %}
+    # https://github.com/divio/django-filer/blob/master/filer/models/filemodels.py
+    {{ instance.audio_file }}
+    # Available variables:
+    {{ instance.text_title }}
+    {{ instance.text_description }}
+    {{ instance.text_transcript }}
+    {{ instance.attributes_str }}
+{% endcomment %}
