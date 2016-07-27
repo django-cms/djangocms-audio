@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-26 16:27+0200\n"
+"POT-Creation-Date: 2016-07-27 11:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cms_plugins.py:12 cms_plugins.py:39 cms_plugins.py:68
+#: cms_plugins.py:12
 msgid "Audio Player"
 msgstr ""
 
 #: cms_plugins.py:23 cms_plugins.py:50 cms_plugins.py:78
-msgid "Advanced Settings"
+msgid "Advanced settings"
 msgstr ""
 
-#: cms_plugins.py:38 models.py:88
+#: cms_plugins.py:38 models.py:87
 msgid "File"
+msgstr ""
+
+#: cms_plugins.py:39 cms_plugins.py:68
+msgid "Audio player"
 msgstr ""
 
 #: cms_plugins.py:67 models.py:146
@@ -41,7 +45,7 @@ msgstr ""
 msgid "Template"
 msgstr ""
 
-#: models.py:64
+#: models.py:64 models.py:211
 msgid "Label"
 msgstr ""
 
@@ -49,24 +53,16 @@ msgstr ""
 msgid "Is active"
 msgstr ""
 
-#: models.py:74 models.py:109 models.py:153
+#: models.py:73 models.py:109 models.py:153
 msgid "Attributes"
 msgstr ""
 
-#: models.py:95
+#: models.py:94
 msgid "Title"
 msgstr ""
 
-#: models.py:100
+#: models.py:99
 msgid "Description"
-msgstr ""
-
-#: models.py:104
-msgid "Text transcript"
-msgstr ""
-
-#: models.py:106
-msgid "Provide a text transcript for accessibility support."
 msgstr ""
 
 #: models.py:122
@@ -79,14 +75,46 @@ msgid "<file is missing>"
 msgstr ""
 
 #: models.py:155
-msgid "Applied to all audio file instances."
+msgid "Is applied to all audio file instances."
 msgstr ""
 
 #: models.py:166
 msgid "<folder is missing>"
 msgstr ""
 
-#: templates/djangocms_audio/default/folder.html:9
+#: models.py:182
+msgid "Subtitles"
+msgstr ""
+
+#: models.py:183
+msgid "Captions"
+msgstr ""
+
+#: models.py:184
+msgid "Descriptions"
+msgstr ""
+
+#: models.py:185
+msgid "Chapters"
+msgstr ""
+
+#: models.py:193
+msgid "Kind"
+msgstr ""
+
+#: models.py:199
+msgid "Source file"
+msgstr ""
+
+#: models.py:206
+msgid "Source language"
+msgstr ""
+
+#: models.py:216
+msgid "Is default"
+msgstr ""
+
+#: templates/djangocms_audio/default/folder.html:11
 msgid "No matching audio files were found in the specified folder."
 msgstr ""
 
