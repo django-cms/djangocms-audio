@@ -23,14 +23,18 @@ class AudioPlayerPlugin(CMSPluginBase):
         (_('Advanced settings'), {
             'classes': ('collapse',),
             'fields': (
-                'is_active',
                 'attributes',
             )
         })
     ]
 
+    def render(self, context, instance, placeholder):
+        context = super(AudioPlayerPlugin, self).render(context, instance, placeholder)
+        context['audio_template'] = instance.template
+        return context
+
     def get_render_template(self, context, instance, placeholder):
-        return 'djangocms_audio/{}/player.html'.format(instance.template)
+        return 'djangocms_audio/{}/audio_player.html'.format(instance.template)
 
 
 class AudioFilePlugin(CMSPluginBase):
@@ -38,7 +42,7 @@ class AudioFilePlugin(CMSPluginBase):
     name = _('File')
     module = _('Audio player')
     require_parent = True
-    parent_classes = ['AudioPlayerPlugin']
+    child_classes = ['AudioTrackPlugin']
 
     fieldsets = [
         (None, {
@@ -51,15 +55,13 @@ class AudioFilePlugin(CMSPluginBase):
             'classes': ('collapse',),
             'fields': (
                 'text_description',
-                'text_transcript',
                 'attributes',
             )
         })
     ]
 
     def get_render_template(self, context, instance, placeholder):
-        return 'djangocms_audio/{}/file.html'.format(
-            instance.parent.get_plugin_instance()[0].template)
+        return 'djangocms_audio/{}/file.html'.format(context['audio_template'])
 
 
 class AudioFolderPlugin(CMSPluginBase):
@@ -83,24 +85,8 @@ class AudioFolderPlugin(CMSPluginBase):
         })
     ]
 
-    def render(self, context, instance, placeholder):
-        files = []
-
-        for file in instance.audio_folder.files:
-            if file.extension in models.ALLOWED_EXTENSIONS:
-                files.append(file)
-
-        # pass additional filtered variable to the template
-        context.update({
-            'audio_files': files,
-            'instance': instance,
-        })
-
-        return context
-
     def get_render_template(self, context, instance, placeholder):
-        return 'djangocms_audio/{}/folder.html'.format(
-            instance.parent.get_plugin_instance()[0].template)
+        return 'djangocms_audio/{}/folder.html'.format(context['audio_template'])
 
 
 plugin_pool.register_plugin(AudioPlayerPlugin)

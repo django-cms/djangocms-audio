@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+Enables the user to add an "Audio player" plugin that serves as
+a wrapper rendering the player and its options.
+
+The "Audio player" plugin allows to add either a single "File" or a reference
+to a "Folder" as children.
+"""
 from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -11,15 +18,6 @@ from djangocms_attributes_field.fields import AttributesField
 
 from filer.fields.file import FilerFileField
 from filer.fields.folder import FilerFolderField
-
-
-"""
-Enables the user to add an "Audio player" plugin that serves as
-a wrapper rendering the player and its options.
-
-The "Audio player" plugin allows to add either a single "File" or a reference
-to a "Folder" as children.
-"""
 
 
 # mp3 is supported by all major browsers
@@ -35,7 +33,7 @@ def get_templates():
     choices = getattr(
         settings,
         'DJANGOCMS_AUDIO_TEMPLATES',
-        False,
+        [],
     )
     if choices:
         return choices
@@ -65,17 +63,13 @@ class AudioPlayer(CMSPlugin):
         blank=True,
         max_length=200,
     )
-    is_active = models.BooleanField(
-        verbose_name=_('Is active'),
-        default=True,
-    )
     attributes = AttributesField(
         verbose_name=_('Attributes'),
         blank=True,
     )
 
     def __str__(self):
-        return self.label
+        return self.label or '%s' % self.pk
 
 
 @python_2_unicode_compatible
@@ -99,11 +93,6 @@ class AudioFile(CMSPlugin):
         verbose_name=_('Description'),
         blank=True,
     )
-    text_transcript = models.TextField(
-        verbose_name=_('Text transcript'),
-        blank=True,
-        help_text=_('Provide a text transcript for accessibility support.'),
-    )
     attributes = AttributesField(
         verbose_name=_('Attributes'),
         blank=True,
@@ -118,10 +107,9 @@ class AudioFile(CMSPlugin):
         if (self.audio_file and
             self.audio_file.extension not in ALLOWED_EXTENSIONS):
             raise ValidationError(
-                ugettext('Incorrect file type: %s.') %
+                ugettext('Incorrect file type: %(extension)s.') %
                 self.audio_file.extension
             )
-        pass
 
     def get_short_description(self):
         if self.audio_file_id and self.audio_file.label:
@@ -158,6 +146,14 @@ class AudioFolder(CMSPlugin):
         if self.audio_folder_id and self.audio_folder.name:
             return self.audio_folder.name
         return '%s' % self.pk
+
+    def get_files(self):
+        files = []
+
+        for audio_file in self.audio_folder.files:
+            if audio_file.extension in ALLOWED_EXTENSIONS:
+                files.append(audio_file)
+        return files
 
     def get_short_description(self):
         if self.audio_folder_id and self.audio_folder.name:

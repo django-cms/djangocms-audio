@@ -1,6 +1,6 @@
 {% load i18n %}
 
-{% for file in audio_files %}
+{% for file in instance.get_files %}
     {% with file.extension as ext %}
         <audio controls
             {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}>
