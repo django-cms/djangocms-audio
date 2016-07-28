@@ -35,9 +35,8 @@ Documentation
 =============
 
 
-See ``REQUIREMENTS`` in the `setup.py 
-<https://github.com/divio/djangocms-audio/blob/master/setup.py>`_ file
-for additional dependencies:
+See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-audio/blob/master/setup.py>`_
+file for additional dependencies:
 
 * Python 2.7, 3.4 or higher
 * Django 1.8 or higher
@@ -94,5 +93,5 @@ You can run tests by executing::
     :target: http://badge.fury.io/py/djangocms-audio
 .. |build| image:: https://travis-ci.org/divio/djangocms-audio.svg?branch=master
     :target: https://travis-ci.org/divio/djangocms-video
-.. |coverage| image:: https://coveralls.io/repos/github/divio/djangocms-audio/badge.svg?branch=master
-    :target: https://coveralls.io/github/divio/djangocms-audio?branch=master
+.. |coverage| image:: https://codecov.io/gh/divio/djangocms-audio/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/divio/djangocms-audio

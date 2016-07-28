@@ -35,9 +35,7 @@ def get_templates():
         'DJANGOCMS_AUDIO_TEMPLATES',
         [],
     )
-    if choices:
-        return choices
-    return []
+    return choices
 
 
 @python_2_unicode_compatible
@@ -69,7 +67,7 @@ class AudioPlayer(CMSPlugin):
     )
 
     def __str__(self):
-        return self.label or '%s' % self.pk
+        return self.label or str(self.pk)
 
 
 @python_2_unicode_compatible
@@ -101,14 +99,14 @@ class AudioFile(CMSPlugin):
     def __str__(self):
         if self.audio_file_id and self.audio_file.label:
             return self.audio_file.label
-        return '%s' % self.pk
+        return str(self.pk)
 
     def clean(self):
         if (self.audio_file and
             self.audio_file.extension not in ALLOWED_EXTENSIONS):
             raise ValidationError(
-                ugettext('Incorrect file type: %(extension)s.') %
-                self.audio_file.extension
+                ugettext('Incorrect file type: {extension}.')
+                    .format(extension=self.audio_file.extension)
             )
 
     def get_short_description(self):
@@ -145,7 +143,7 @@ class AudioFolder(CMSPlugin):
     def __str__(self):
         if self.audio_folder_id and self.audio_folder.name:
             return self.audio_folder.name
-        return '%s' % self.pk
+        return str(self.pk)
 
     def get_files(self):
         files = []

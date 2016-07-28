@@ -20,7 +20,10 @@ env:
   - TOX_ENV=py27-dj19-cms32
 
 install:
-  - pip install tox
+  - pip install tox coverage
 
 script:
   - tox -e $TOX_ENV
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
