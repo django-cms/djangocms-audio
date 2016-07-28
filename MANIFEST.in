@@ -1,0 +1,3 @@
+recursive-include djangocms_audio/templates *
+recursive-include djangocms_audio/static *
+recursive-include djangocms_audio/locale *

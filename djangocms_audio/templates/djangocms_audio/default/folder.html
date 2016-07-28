@@ -1,0 +1,20 @@
+{% load i18n %}
+
+{% for file in instance.get_files %}
+    {% with file.extension as ext %}
+        <audio controls
+            {% if instance.attributes %} {{ instance.attributes_str }}{% endif %}>
+            <source src="{{ file.file.url }}" type="audio/{% if ext == "mp3" %}mpeg{% else %}{{ ext }}{% endif %}">
+        </audio>
+    {% endwith %}
+{% empty %}
+    <p>{% trans "No matching audio files were found in the specified folder." %}</p>
+{% endfor %}
+
+{% comment %}
+    # https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+    # https://github.com/divio/django-filer/blob/master/filer/models/foldermodels.py
+    {{ instance.audio_folder }}
+    # Available variables:
+    {{ instance.attributes_str }}
+{% endcomment %}
