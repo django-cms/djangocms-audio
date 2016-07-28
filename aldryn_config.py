@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from aldryn_client import forms
-from django.template.defaultfilters import slugify
 
 
 class Form(forms.BaseForm):
@@ -13,12 +12,21 @@ class Form(forms.BaseForm):
         required=False,
     )
 
-    def clean(self, value):
-        for x in value.split(','):
-            yield (slugify(x.strip()), x)
+    def clean(self):
+        data = super(Form, self).clean()
+        data['templates'] = [item.strip() for item in data['templates'].split(',')]
+        data['extensions'] = [item.strip() for item in data['extensions'].split(',')]
+        return data
 
     def to_settings(self, data, settings):
-        settings['DJANGOCMS_AUDIO_TEMPLATES'] = self.clean(templates)
-        if data[extensions]:
-            settings['DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS'] = self.clean(extensions)
+        # validate aldryn settings
+        if data['templates']:
+            settings['DJANGOCMS_AUDIO_TEMPLATES'] = [(item, item) for item in data['templates']
+        if data['extensions']:
+            settings['DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS'] = data['extensions']
+
+        # register dependencies
+        settings['INSTALLED_APPS'].extend([
+            'djangocms_audio',
+        ])
         return settings

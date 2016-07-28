@@ -1,6 +1,3 @@
 {
-    "package-name": "djangocms-audio",
-    "installed-apps": [
-        "djangocms_audio"
-    ]
+    "package-name": "djangocms-audio"
 }
