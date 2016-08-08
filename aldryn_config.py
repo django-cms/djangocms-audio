@@ -14,8 +14,12 @@ class Form(forms.BaseForm):
 
     def clean(self):
         data = super(Form, self).clean()
-        data['templates'] = [item.strip() for item in data['templates'].split(',')]
-        data['extensions'] = [item.strip() for item in data['extensions'].split(',')]
+
+        def split_and_strip(string):
+            return [item.strip() for item in string.split(',') if item]
+
+        data['templates'] = split_and_strip(data['templates'])
+        data['extensions'] = split_and_strip(data['extensions'])
         return data
 
     def to_settings(self, data, settings):
