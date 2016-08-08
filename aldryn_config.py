@@ -21,7 +21,7 @@ class Form(forms.BaseForm):
     def to_settings(self, data, settings):
         # validate aldryn settings
         if data['templates']:
-            settings['DJANGOCMS_AUDIO_TEMPLATES'] = [(item, item) for item in data['templates']
+            settings['DJANGOCMS_AUDIO_TEMPLATES'] = [(item, item) for item in data['templates']]
         if data['extensions']:
             settings['DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS'] = data['extensions']
         return settings
