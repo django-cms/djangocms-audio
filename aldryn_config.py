@@ -24,9 +24,4 @@ class Form(forms.BaseForm):
             settings['DJANGOCMS_AUDIO_TEMPLATES'] = [(item, item) for item in data['templates']
         if data['extensions']:
             settings['DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS'] = data['extensions']
-
-        # register dependencies
-        settings['INSTALLED_APPS'].extend([
-            'djangocms_audio',
-        ])
         return settings
