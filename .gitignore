@@ -3,5 +3,6 @@
 .DS_Store
 .idea/
 .tox/
+.eggs/
 dist/
 build/
