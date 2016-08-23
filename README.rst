@@ -75,7 +75,7 @@ copying the ``standard`` folder inside that directory and renaming it to
 as it's supported across all major browsers. You can change the default
 setting by overriding::
 
-    ALLOWED_EXTENSIONS = ['mp3', 'ogg', 'wav']
+    DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS = ['mp3', 'ogg', 'wav']
 
 
 Running Tests
