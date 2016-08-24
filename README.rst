@@ -68,7 +68,7 @@ setting::
 
 You'll need to create the `feature` folder inside ``templates/djangocms_audio/``
 otherwise you will get a *template does not exist* error. You can do this by
-copying the ``standard`` folder inside that directory and renaming it to
+copying the ``default`` folder inside that directory and renaming it to
 ``feature``.
 
 ``MP3`` and ``OGG`` files are allowed by default. We recommend using ``MP3``
