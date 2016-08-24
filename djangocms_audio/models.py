@@ -205,4 +205,6 @@ class AudioTrack(CMSPlugin):
     )
 
     def __str__(self):
+        if self.srclang:
+            return self.kind + ' ' + self.srclang
         return self.kind
