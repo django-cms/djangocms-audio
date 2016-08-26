@@ -24,12 +24,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='audioplayer',
             name='template',
-            field=models.CharField(default=b'default', max_length=255, verbose_name='Template', choices=[(b'default', 'Default')]),
+            field=models.CharField(default='default', max_length=255, verbose_name='Template', choices=[('default', 'Default')]),
         ),
         migrations.AlterField(
             model_name='audiotrack',
             name='kind',
-            field=models.CharField(max_length=255, verbose_name='Kind', choices=[(b'subtitles', 'Subtitles'), (b'captions', 'Captions'), (b'descriptions', 'Descriptions'), (b'chapters', 'Chapters')]),
+            field=models.CharField(max_length=255, verbose_name='Kind', choices=[('subtitles', 'Subtitles'), ('captions', 'Captions'), ('descriptions', 'Descriptions'), ('chapters', 'Chapters')]),
         ),
         migrations.AlterField(
             model_name='audiotrack',
