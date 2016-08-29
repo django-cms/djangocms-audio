@@ -54,12 +54,12 @@ class AudioPlayer(CMSPlugin):
         verbose_name=_('Template'),
         choices=TEMPLATE_CHOICES + get_templates(),
         default=DEFAULT_CHOICE,
-        max_length=50,
+        max_length=255,
     )
     label = models.CharField(
         verbose_name=_('Label'),
         blank=True,
-        max_length=200,
+        max_length=255,
     )
     attributes = AttributesField(
         verbose_name=_('Attributes'),
@@ -85,7 +85,7 @@ class AudioFile(CMSPlugin):
     text_title = models.CharField(
         verbose_name=_('Title'),
         blank=True,
-        max_length=200,
+        max_length=255,
     )
     text_description = models.TextField(
         verbose_name=_('Description'),
@@ -179,7 +179,7 @@ class AudioTrack(CMSPlugin):
     kind = models.CharField(
         verbose_name=_('Kind'),
         choices=KIND_CHOICES,
-        max_length=50,
+        max_length=255,
     )
     src = FilerFileField(
         verbose_name=_('Source file'),
@@ -191,13 +191,13 @@ class AudioTrack(CMSPlugin):
     srclang = models.CharField(
         verbose_name = _('Source language'),
         blank=True,
-        max_length=10,
+        max_length=255,
         help_text=_('Examples: "en" or "de" etc.'),
     )
     label = models.CharField(
         verbose_name=_('Label'),
         blank=True,
-        max_length=200,
+        max_length=255,
     )
     attributes = AttributesField(
         verbose_name=_('Attributes'),
@@ -205,6 +205,7 @@ class AudioTrack(CMSPlugin):
     )
 
     def __str__(self):
+        label = self.kind
         if self.srclang:
-            return self.kind + ' ' + self.srclang
-        return self.kind
+            label += ' {}'.format(self.srclang)
+        return label
