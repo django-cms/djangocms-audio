@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-1.0.0 (unreleased)
+1.0.0 (2016-29-08)
 ==================
 
 * Bumped to 1.0 as addon is released and used in production
