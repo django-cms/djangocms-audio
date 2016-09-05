@@ -43,17 +43,14 @@ class AudioPlayer(CMSPlugin):
     """
     Renders a container around the HTML <audio> elements.
     """
-    DEFAULT_CHOICE = 'default'
-
     TEMPLATE_CHOICES = [
         ('default', _('Default')),
     ]
 
-    # The label will be displayed as help text in the structure board view.
     template = models.CharField(
         verbose_name=_('Template'),
         choices=TEMPLATE_CHOICES + get_templates(),
-        default=DEFAULT_CHOICE,
+        default=TEMPLATE_CHOICES[0][0],
         max_length=255,
     )
     label = models.CharField(
