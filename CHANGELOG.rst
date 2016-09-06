@@ -7,6 +7,7 @@ Changelog
 ==================
 
 * Removed internal ``DEFAULT_CHOICE`` variable
+* Removed ``base.html`` for performance reasons
 * Fixed faulty settings parsing in aldryn_config.py
 
 
