@@ -5,7 +5,9 @@ Changelog
 
 1.0.1 (unreleased)
 ==================
+
 * Removed internal ``DEFAULT_CHOICE`` variable
+* Fixed faulty settings parsing in aldryn_config.py
 
 
 1.0.0 (2016-29-08)
