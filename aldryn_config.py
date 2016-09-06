@@ -12,7 +12,7 @@ class Form(forms.BaseForm):
         required=False,
     )
     extensions = forms.CharField(
-        'List of allowed extensions, default "mp3, ogg, wav" when empty (comma separated)',
+        'List of allowed extensions, default "mp3, ogg" when empty (comma separated)',
         required=False,
     )
 
@@ -40,7 +40,4 @@ class Form(forms.BaseForm):
         if data['extensions']:
             settings['DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS'] = split_and_strip(data['extensions'])
 
-        from pprint import pprint as pp
-        pp(data)
-        pp(settings)
         return settings

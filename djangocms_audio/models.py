@@ -30,7 +30,10 @@ ALLOWED_EXTENSIONS = getattr(
 
 # Add additional choices through the ``settings.py``.
 def get_templates():
-    choices = getattr(
+    choices = [
+        ('default', _('Default')),
+    ]
+    choices += getattr(
         settings,
         'DJANGOCMS_AUDIO_TEMPLATES',
         [],
@@ -49,7 +52,7 @@ class AudioPlayer(CMSPlugin):
 
     template = models.CharField(
         verbose_name=_('Template'),
-        choices=TEMPLATE_CHOICES + get_templates(),
+        choices=get_templates(),
         default=TEMPLATE_CHOICES[0][0],
         max_length=255,
     )
