@@ -12,7 +12,7 @@ class Form(forms.BaseForm):
         required=False,
     )
     extensions = forms.CharField(
-        'List of allowed extensions, default "mp3, ogg" when empty (comma separated)',
+        'List of allowed extensions, default "mp3, ogg, wav" when empty (comma separated)',
         required=False,
     )
 

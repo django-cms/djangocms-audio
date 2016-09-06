@@ -9,6 +9,7 @@ Changelog
 * Removed internal ``DEFAULT_CHOICE`` variable
 * Removed ``base.html`` for performance reasons
 * Fixed faulty settings parsing in aldryn_config.py
+* Fixed typo in aldryn configuration
 
 
 1.0.0 (2016-29-08)
