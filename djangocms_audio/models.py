@@ -46,14 +46,10 @@ class AudioPlayer(CMSPlugin):
     """
     Renders a container around the HTML <audio> elements.
     """
-    TEMPLATE_CHOICES = [
-        ('default', _('Default')),
-    ]
-
     template = models.CharField(
         verbose_name=_('Template'),
         choices=get_templates(),
-        default=TEMPLATE_CHOICES[0][0],
+        default=get_templates()[0][0],
         max_length=255,
     )
     label = models.CharField(
