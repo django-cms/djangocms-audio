@@ -11,6 +11,7 @@ Changelog
 * Fixed faulty settings parsing in aldryn_config.py
 * Fixed typo in aldryn configuration
 * Adapted private ``get_template`` method
+* Updated translations
 
 
 1.0.0 (2016-29-08)

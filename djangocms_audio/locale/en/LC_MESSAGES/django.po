@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 19:40+0200\n"
+"POT-Creation-Date: 2016-09-08 10:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 
 #: cms_plugins.py:12 cms_plugins.py:43 cms_plugins.py:72 cms_plugins.py:97
 msgid "Audio player"
@@ -25,11 +25,11 @@ msgstr "Audio player"
 msgid "Advanced settings"
 msgstr "Advanced settings"
 
-#: cms_plugins.py:42 models.py:79
+#: cms_plugins.py:42 models.py:75
 msgid "File"
 msgstr "File"
 
-#: cms_plugins.py:71 models.py:131
+#: cms_plugins.py:71 models.py:127
 msgid "Folder"
 msgstr "Folder"
 
@@ -37,80 +37,80 @@ msgstr "Folder"
 msgid "Track"
 msgstr "Track"
 
-#: models.py:49
+#: models.py:34
 msgid "Default"
 msgstr "Default"
 
-#: models.py:54
+#: models.py:50
 msgid "Template"
 msgstr "Template"
 
-#: models.py:60 models.py:198
+#: models.py:56 models.py:194
 msgid "Label"
 msgstr "Label"
 
-#: models.py:65 models.py:95 models.py:138 models.py:203
+#: models.py:61 models.py:91 models.py:134 models.py:199
 msgid "Attributes"
 msgstr "Attributes"
 
-#: models.py:86
+#: models.py:82
 msgid "Title"
 msgstr "Title"
 
-#: models.py:91
+#: models.py:87
 msgid "Description"
 msgstr "Description"
 
-#: models.py:108
+#: models.py:104
 #, python-brace-format
 msgid "Incorrect file type: {extension}."
 msgstr "Incorrect file type: {extension}."
 
-#: models.py:115
+#: models.py:111
 msgid "<file is missing>"
 msgstr "<file is missing>"
 
-#: models.py:140
+#: models.py:136
 msgid "Is applied to all audio file instances."
 msgstr "Is applied to all audio file instances."
 
-#: models.py:159
+#: models.py:155
 msgid "<folder is missing>"
 msgstr "<folder is missing>"
 
-#: models.py:173
+#: models.py:169
 msgid "Subtitles"
 msgstr "Subtitles"
 
-#: models.py:174
+#: models.py:170
 msgid "Captions"
 msgstr "Captions"
 
-#: models.py:175
+#: models.py:171
 msgid "Descriptions"
 msgstr "Descriptions"
 
-#: models.py:176
+#: models.py:172
 msgid "Chapters"
 msgstr "Chapters"
 
-#: models.py:180
+#: models.py:176
 msgid "Kind"
 msgstr "Kind"
 
-#: models.py:185
+#: models.py:181
 msgid "Source file"
 msgstr "Source file"
 
-#: models.py:192
+#: models.py:188
 msgid "Source language"
 msgstr "Source language"
 
-#: models.py:195
+#: models.py:191
 msgid "Examples: \"en\" or \"de\" etc."
 msgstr "Examples: \"en\" or \"de\" etc."
 
-#: templates/djangocms_audio/default/audio_player.html:8
+#: templates/djangocms_audio/default/audio_player.html:6
 msgid "No audio file available."
 msgstr "No audio file available."
 

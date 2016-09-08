@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-25 19:40+0200\n"
+"POT-Creation-Date: 2016-09-08 10:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Angelo Dini <finalangeljp@hotmail.com>, 2016\n"
 "Language-Team: German (https://www.transifex.com/divio/teams/58664/de/)\n"
@@ -26,11 +26,11 @@ msgstr "Audioplayer"
 msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
-#: cms_plugins.py:42 models.py:79
+#: cms_plugins.py:42 models.py:75
 msgid "File"
 msgstr "Datei"
 
-#: cms_plugins.py:71 models.py:131
+#: cms_plugins.py:71 models.py:127
 msgid "Folder"
 msgstr "Ordner"
 
@@ -38,80 +38,80 @@ msgstr "Ordner"
 msgid "Track"
 msgstr "Track"
 
-#: models.py:49
+#: models.py:34
 msgid "Default"
 msgstr "Standard"
 
-#: models.py:54
+#: models.py:50
 msgid "Template"
 msgstr "Template"
 
-#: models.py:60 models.py:198
+#: models.py:56 models.py:194
 msgid "Label"
 msgstr "Label"
 
-#: models.py:65 models.py:95 models.py:138 models.py:203
+#: models.py:61 models.py:91 models.py:134 models.py:199
 msgid "Attributes"
 msgstr "Attribute"
 
-#: models.py:86
+#: models.py:82
 msgid "Title"
 msgstr "Titel"
 
-#: models.py:91
+#: models.py:87
 msgid "Description"
 msgstr "Beschreibung"
 
-#: models.py:108
+#: models.py:104
 #, python-brace-format
 msgid "Incorrect file type: {extension}."
 msgstr "Falscher Dateityp: {extension}."
 
-#: models.py:115
+#: models.py:111
 msgid "<file is missing>"
 msgstr "<datei nicht vorhanden>"
 
-#: models.py:140
+#: models.py:136
 msgid "Is applied to all audio file instances."
 msgstr "Wird auf alle Audiodatei-Instanzen angewendet."
 
-#: models.py:159
+#: models.py:155
 msgid "<folder is missing>"
 msgstr "<ordner nicht vorhanden>"
 
-#: models.py:173
+#: models.py:169
 msgid "Subtitles"
 msgstr "Untertitel"
 
-#: models.py:174
+#: models.py:170
 msgid "Captions"
 msgstr "Legenden"
 
-#: models.py:175
+#: models.py:171
 msgid "Descriptions"
 msgstr "Beschreibungen"
 
-#: models.py:176
+#: models.py:172
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: models.py:180
+#: models.py:176
 msgid "Kind"
 msgstr "Art"
 
-#: models.py:185
+#: models.py:181
 msgid "Source file"
 msgstr "Quelldatei"
 
-#: models.py:192
+#: models.py:188
 msgid "Source language"
 msgstr "Ausgangssprache"
 
-#: models.py:195
+#: models.py:191
 msgid "Examples: \"en\" or \"de\" etc."
 msgstr "Beispiele: \"en\" oder \"de\" etc."
 
-#: templates/djangocms_audio/default/audio_player.html:8
+#: templates/djangocms_audio/default/audio_player.html:6
 msgid "No audio file available."
 msgstr "Keine Audiodatei verfügbar."
 
