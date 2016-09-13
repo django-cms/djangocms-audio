@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-1.0.1 (2016-09-08)
+1.0.1 (2016-08-09)
 ==================
 
 * Removed internal ``DEFAULT_CHOICE`` variable
