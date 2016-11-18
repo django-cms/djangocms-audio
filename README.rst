@@ -12,7 +12,7 @@ but you can override this in your own templates if required).
 It uses files managed by `Django Filer <https://github.com/divio/django-filer>`_.
 The plugins allow you to select a single file or an entire folder of files.
 
-This addon is compatible with `Aldryn <http://aldryn.com>`_ and is also available on the
+This addon is compatible with `Divio Cloud <http://divio.com>`_ and is also available on the
 `django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-googlemap/>`_
 for easy installation.
 
