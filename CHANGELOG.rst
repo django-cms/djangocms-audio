@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-1.0.2 (unreleased)
+1.0.2 (2016-11-22)
 ==================
 * Prevent changes to ``DJANGOCMS_AUDIO_XXX`` settings from requiring new
   migrations
