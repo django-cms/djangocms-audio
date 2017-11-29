@@ -95,6 +95,6 @@ You can run tests by executing::
 .. |pypi| image:: https://badge.fury.io/py/djangocms-audio.svg
     :target: http://badge.fury.io/py/djangocms-audio
 .. |build| image:: https://travis-ci.org/divio/djangocms-audio.svg?branch=master
-    :target: https://travis-ci.org/divio/djangocms-video
+    :target: https://travis-ci.org/divio/djangocms-audio
 .. |coverage| image:: https://codecov.io/gh/divio/djangocms-audio/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/divio/djangocms-audio
