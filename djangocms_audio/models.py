@@ -6,19 +6,18 @@ a wrapper rendering the player and its options.
 The "Audio player" plugin allows to add either a single "File" or a reference
 to a "Folder" as children.
 """
-from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import ugettext
+from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin
 
 from djangocms_attributes_field.fields import AttributesField
-
 from filer.fields.file import FilerFileField
 from filer.fields.folder import FilerFolderField
-
 
 # mp3 is supported by all major browsers
 ALLOWED_EXTENSIONS = getattr(
@@ -98,11 +97,10 @@ class AudioFile(CMSPlugin):
         return str(self.pk)
 
     def clean(self):
-        if (self.audio_file and
-            self.audio_file.extension not in ALLOWED_EXTENSIONS):
+        if self.audio_file and self.audio_file.extension not in ALLOWED_EXTENSIONS:
             raise ValidationError(
-                ugettext('Incorrect file type: {extension}.')
-                    .format(extension=self.audio_file.extension)
+                ugettext('Incorrect file type: {extension}.').format(
+                    extension=self.audio_file.extension)
             )
 
     def get_short_description(self):
@@ -185,7 +183,7 @@ class AudioTrack(CMSPlugin):
         related_name='+',
     )
     srclang = models.CharField(
-        verbose_name = _('Source language'),
+        verbose_name=_('Source language'),
         blank=True,
         max_length=255,
         help_text=_('Examples: "en" or "de" etc.'),
