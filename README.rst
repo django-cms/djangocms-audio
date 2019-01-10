@@ -39,9 +39,8 @@ Documentation
 See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-audio/blob/master/setup.py>`_
 file for additional dependencies:
 
-* image:: https://img.shields.io/badge/python-2.7%20%7C%203.4+-blue.svg
-* figure:: https://img.shields.io/badge/django-1.11%20%7C%202.0%20%7C%202.1-blue.svg
-* |djangocms|
+|python| |django| |djangocms|
+
 * Django Filer 1.2.4 or higher
 
 Make sure `django Filer <http://django-filer.readthedocs.io/en/latest/installation.html>`_
@@ -102,6 +101,6 @@ You can run tests by executing::
 .. |coverage| image:: https://codecov.io/gh/divio/djangocms-audio/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/divio/djangocms-audio
 
-.. |django| image:: https://img.shields.io/badge/python-2.7%20%7C%203.4+-blue.svg
+.. |django| figure:: https://img.shields.io/badge/python-2.7%20%7C%203.4+-blue.svg
 .. |python| image:: https://img.shields.io/badge/django-1.11%20%7C%202.0%20%7C%202.1-blue.svg
 .. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.4%2B-blue.svg
