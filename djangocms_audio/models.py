@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 """
 Enables the user to add an "Audio player" plugin that serves as
 a wrapper rendering the player and its options.
@@ -7,6 +6,8 @@ a wrapper rendering the player and its options.
 The "Audio player" plugin allows to add either a single "File" or a reference
 to a "Folder" as children.
 """
+from __future__ import unicode_literals
+
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
