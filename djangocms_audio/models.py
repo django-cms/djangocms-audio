@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 """
 Enables the user to add an "Audio player" plugin that serves as
 a wrapper rendering the player and its options.
@@ -18,6 +19,7 @@ from cms.models import CMSPlugin
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.file import FilerFileField
 from filer.fields.folder import FilerFolderField
+
 
 # mp3 is supported by all major browsers
 ALLOWED_EXTENSIONS = getattr(

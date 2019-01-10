@@ -4,6 +4,7 @@ from setuptools import find_packages, setup
 
 from djangocms_audio import __version__
 
+
 REQUIREMENTS = [
     'django-cms>=3.4.5',
     'django-filer>=1.2.4',

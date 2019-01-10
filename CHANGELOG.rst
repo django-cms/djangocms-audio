@@ -2,10 +2,13 @@
 Changelog
 =========
 
+
 1.1.1 (unreleased)
 ==================
 
 * Fixed test matrix
+* Fixed typo in ``MANIFEST.in``
+* Adapted code base to align with other supported addons
 
 
 1.1.0 (2018-11-08)
