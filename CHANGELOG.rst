@@ -6,7 +6,7 @@ Changelog
 1.1.1 (unreleased)
 ==================
 
-* Fixed test matrix
+* Extended test matrix
 * Fixed typo in ``MANIFEST.in``
 * Adapted code base to align with other supported addons
 
