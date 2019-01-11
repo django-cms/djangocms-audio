@@ -7,6 +7,7 @@ from django.db import migrations, models
 import djangocms_attributes_field.fields
 import filer.fields.folder
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -45,7 +46,7 @@ class Migration(migrations.Migration):
             name='AudioPlayer',
             fields=[
                 ('cmsplugin_ptr', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, parent_link=True, related_name='djangocms_audio_audioplayer', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
-                ('template', models.CharField(default=b'default', max_length=50, verbose_name='Template', choices=[(b'default', 'Default')])),
+                ('template', models.CharField(default='default', max_length=50, verbose_name='Template', choices=[('default', 'Default')])),
                 ('label', models.CharField(max_length=200, verbose_name='Label', blank=True)),
                 ('attributes', djangocms_attributes_field.fields.AttributesField(default=dict, verbose_name='Attributes', blank=True)),
             ],
@@ -58,7 +59,7 @@ class Migration(migrations.Migration):
             name='AudioTrack',
             fields=[
                 ('cmsplugin_ptr', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, parent_link=True, related_name='djangocms_audio_audiotrack', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
-                ('kind', models.CharField(max_length=50, verbose_name='Kind', choices=[(b'subtitles', 'Subtitles'), (b'captions', 'Captions'), (b'descriptions', 'Descriptions'), (b'chapters', 'Chapters')])),
+                ('kind', models.CharField(max_length=50, verbose_name='Kind', choices=[('subtitles', 'Subtitles'), ('captions', 'Captions'), ('descriptions', 'Descriptions'), ('chapters', 'Chapters')])),
                 ('srclang', models.CharField(help_text='Examples: "en" or "de" etc.', max_length=10, verbose_name='Source language', blank=True)),
                 ('label', models.CharField(max_length=200, verbose_name='Label', blank=True)),
                 ('attributes', djangocms_attributes_field.fields.AttributesField(default=dict, verbose_name='Attributes', blank=True)),

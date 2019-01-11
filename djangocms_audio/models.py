@@ -6,6 +6,8 @@ a wrapper rendering the player and its options.
 The "Audio player" plugin allows to add either a single "File" or a reference
 to a "Folder" as children.
 """
+from __future__ import unicode_literals
+
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -18,6 +20,7 @@ from cms.models import CMSPlugin
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.file import FilerFileField
 from filer.fields.folder import FilerFolderField
+
 
 # mp3 is supported by all major browsers
 ALLOWED_EXTENSIONS = getattr(
