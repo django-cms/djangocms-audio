@@ -8,7 +8,7 @@ Changelog
 
 * Extended test matrix
 * Fixed typo in ``MANIFEST.in``
-* Added tox and adapted imports
+* Added isort and adapted imports
 * Adapted code base to align with other supported addons
 
 
