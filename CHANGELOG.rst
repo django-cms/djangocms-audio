@@ -6,6 +6,8 @@ Changelog
 1.1.1 (unreleased)
 ==================
 
+* Introduced support for CMS 3.7 and Django 2.2
+* Removed support for Django 2.0
 * Extended test matrix
 * Fixed typo in ``MANIFEST.in``
 * Added isort and adapted imports
