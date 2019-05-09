@@ -3,9 +3,11 @@ Changelog
 =========
 
 
-1.1.1 (unreleased)
+1.2.0 (unreleased)
 ==================
 
+* Added support for Django 2.2 and django CMS 3.7
+* Removed support for Django 2.0
 * Extended test matrix
 * Fixed typo in ``MANIFEST.in``
 * Added isort and adapted imports
