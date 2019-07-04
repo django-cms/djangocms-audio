@@ -148,7 +148,7 @@ class AudioFolder(CMSPlugin):
         files = []
 
         for audio_file in self.audio_folder.files:
-            if audio_file.extension in ALLOWED_EXTENSIONS:
+            if audio_file.extension in get_extensions():
                 files.append(audio_file)
         return files
 

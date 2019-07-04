@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-from importlib import reload
-
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from djangocms_audio.models import (
-    AudioPlayer, AudioFile, AudioFolder
+    AudioPlayer, AudioFile, AudioFolder, AudioTrack
 )
 
 from .helpers import get_filer_file, get_filer_folder
@@ -110,7 +108,7 @@ class AudioPlayerTestCase(TestCase):
         self.assertEqual(instance.__str__(), "1")
         self.assertEqual(instance.get_short_description(), "<folder is missing>")
 
-def test_audio_track_instance(self):
+    def test_audio_track_instance(self):
         AudioTrack.objects.create(
             kind=AudioTrack.KIND_CHOICES[0][0],
             src=self.audio,  # should be .vtt normally
@@ -118,15 +116,15 @@ def test_audio_track_instance(self):
             label="track label",
             attributes="{'data-type, 'audio'}",
         )
-        instance = AudioFolder.objects.all()
+        instance = AudioTrack.objects.all()
         self.assertEqual(len(instance), 1)
-        instance = AudioFolder.objects.get(pk=1)
-        self.assertEqual(instance.kind, "Subtitles")
+        instance = AudioTrack.objects.get(pk=1)
+        self.assertEqual(instance.kind, "subtitles")
         self.assertEqual(instance.src, self.audio)
         self.assertEqual(instance.srclang, "en")
         self.assertEqual(instance.label, "track label")
         self.assertEqual(instance.attributes, "{'data-type, 'audio'}")
-        self.assertEqual(instance.__str__(), "track label (Subtitles)")
+        self.assertEqual(instance.__str__(), "subtitles (en)")
         # case when the folder has been removed
         instance.srclang = None
-        self.assertEqual(instance.__str__(), "track label")
+        self.assertEqual(instance.__str__(), "subtitles")
