@@ -4,7 +4,8 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from djangocms_audio.models import (
-    AudioFile, AudioFolder, AudioPlayer, AudioTrack,
+    AudioFile, AudioFolder, AudioPlayer, AudioTrack, get_extensions,
+    get_templates,
 )
 
 from .helpers import get_filer_file, get_filer_folder
@@ -36,8 +37,6 @@ class AudioPlayerTestCase(TestCase):
         self.assertEqual(len(AudioFolder.objects.all()), 0)
 
     def test_settings(self):
-        from djangocms_audio.models import get_extensions, get_templates  # isort:skip
-
         self.assertEqual(get_extensions(), ['mp3', 'ogg'])
         settings.DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS = ["mp3", "wav", "flac"]
         self.assertEqual(get_extensions(), ["mp3", "wav", "flac"])
@@ -114,6 +113,16 @@ class AudioPlayerTestCase(TestCase):
         # old copy relation
         instance.copy_relations(instance)
         self.assertEqual(instance.audio_folder, None)
+
+    def test_audio_folder_instance_files(self):
+        self.audio = get_filer_file(
+            file_name="test_file.mp3",
+            folder=self.folder
+        )
+        instance = AudioFolder.objects.create(
+            audio_folder=self.folder,
+        )
+        self.assertEqual(instance.get_files(), [self.audio])
 
     def test_audio_track_instance(self):
         AudioTrack.objects.create(
