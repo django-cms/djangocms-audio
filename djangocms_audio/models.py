@@ -23,11 +23,13 @@ from filer.fields.folder import FilerFolderField
 
 
 # mp3 is supported by all major browsers
-ALLOWED_EXTENSIONS = getattr(
-    settings,
-    'DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS',
-    ['mp3', 'ogg'],
-)
+def get_extensions():
+    extensions = getattr(
+        settings,
+        'DJANGOCMS_AUDIO_ALLOWED_EXTENSIONS',
+        ['mp3', 'ogg'],
+    )
+    return extensions
 
 
 # Add additional choices through the ``settings.py``.
@@ -100,7 +102,7 @@ class AudioFile(CMSPlugin):
         return str(self.pk)
 
     def clean(self):
-        if self.audio_file and self.audio_file.extension not in ALLOWED_EXTENSIONS:
+        if self.audio_file and self.audio_file.extension not in get_extensions():
             raise ValidationError(
                 ugettext('Incorrect file type: {extension}.').format(
                     extension=self.audio_file.extension)
@@ -120,7 +122,7 @@ class AudioFile(CMSPlugin):
 @python_2_unicode_compatible
 class AudioFolder(CMSPlugin):
     """
-    Render files contained in a folder, only ALLOWED_EXTENSIONS are considered.
+    Render files contained in a folder, only get_extensions() are considered.
     If you desire more customisation (title name, description) use the
     File plugin.
     """
@@ -204,5 +206,5 @@ class AudioTrack(CMSPlugin):
     def __str__(self):
         label = self.kind
         if self.srclang:
-            label += ' {}'.format(self.srclang)
+            label += ' ({})'.format(self.srclang)
         return label
