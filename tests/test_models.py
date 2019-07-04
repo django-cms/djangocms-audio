@@ -90,6 +90,9 @@ class AudioPlayerTestCase(TestCase):
         self.assertEqual(instance.__str__(), "1")
         self.assertEqual(instance.clean(), None)
         self.assertEqual(instance.get_short_description(), "<file is missing>")
+        # old copy relation
+        instance.copy_relations(instance)
+        self.assertEqual(instance.audio_file, None)
 
     def test_audio_folder_instance(self):
         AudioFolder.objects.create(
@@ -102,11 +105,15 @@ class AudioPlayerTestCase(TestCase):
         self.assertEqual(instance.audio_folder, self.folder)
         self.assertEqual(instance.attributes, "{'data-type, 'audio'}")
         self.assertEqual(instance.__str__(), "test_folder")
+        self.assertEqual(instance.get_short_description(), "test_folder")
         self.assertEqual(instance.get_files(), [])
         # case when the folder has been removed
         instance.audio_folder = None
         self.assertEqual(instance.__str__(), "1")
         self.assertEqual(instance.get_short_description(), "<folder is missing>")
+        # old copy relation
+        instance.copy_relations(instance)
+        self.assertEqual(instance.audio_folder, None)
 
     def test_audio_track_instance(self):
         AudioTrack.objects.create(

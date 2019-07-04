@@ -85,11 +85,12 @@ def get_filer_image(image_name="test_file.jpg"):
     return filer_object
 
 
-def get_filer_file(file_name="test_file.pdf"):
+def get_filer_file(file_name="test_file.pdf", folder=None):
     """
     Creates and stores a file to filer and returns it
 
     :param file_name: the name for the file (default "test_file.pdf")
+    :param folder: optionally provide a folder instance
     :returns: filer file instance
     """
     data = get_file(file_name)
@@ -100,19 +101,22 @@ def get_filer_file(file_name="test_file.pdf"):
     filer_object = FilerFile.objects.create(
         original_filename=data.get("name"),
         file=filer_file,
+        folder=folder,
     )
 
     return filer_object
 
 
-def get_filer_folder(folder_name="test_folder"):
+def get_filer_folder(folder_name="test_folder", parent=None):
     """
     Creates and returns a filer folder
 
     :param folder_name: the name of the folder to be used (default "folder_name")
+    :param parent: optionally provide a parent folder
     :returns: filer folder instance
     """
     filer_object = FilerFolder.objects.create(
+        parent=parent,
         name=folder_name,
     )
 
