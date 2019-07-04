@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from djangocms_audio.models import (
-    AudioPlayer, AudioFile, AudioFolder, AudioTrack
+    AudioFile, AudioFolder, AudioPlayer, AudioTrack,
 )
 
 from .helpers import get_filer_file, get_filer_folder

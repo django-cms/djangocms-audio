@@ -1,12 +1,11 @@
 import os
-
 from tempfile import mkdtemp
 
 from django.core.files import File
 
-from filer.models.imagemodels import Image as FilerImage
 from filer.models.filemodels import File as FilerFile
 from filer.models.foldermodels import Folder as FilerFolder
+from filer.models.imagemodels import Image as FilerImage
 from filer.utils.compatibility import PILImage, PILImageDraw
 
 
