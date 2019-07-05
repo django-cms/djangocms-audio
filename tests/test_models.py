@@ -11,10 +11,10 @@ from djangocms_audio.models import (
 from .helpers import get_filer_file, get_filer_folder
 
 
-class AudioPlayerTestCase(TestCase):
+class AudioPlayerModelsTestCase(TestCase):
 
     def setUp(self):
-        self.audio = get_filer_file(file_name="test_file.mp3")
+        self.audio = get_filer_file("test_file.mp3")
         self.folder = get_filer_folder()
 
     def tearDown(self):
@@ -35,6 +35,8 @@ class AudioPlayerTestCase(TestCase):
         self.assertEqual(len(AudioFile.objects.all()), 0)
         AudioFolder.objects.filter(pk=1).delete()
         self.assertEqual(len(AudioFolder.objects.all()), 0)
+        AudioTrack.objects.filter(pk=1).delete()
+        self.assertEqual(len(AudioTrack.objects.all()), 0)
 
     def test_settings(self):
         self.assertEqual(get_extensions(), ['mp3', 'ogg'])
@@ -81,7 +83,7 @@ class AudioPlayerTestCase(TestCase):
         self.assertEqual(instance.clean(), None)
         self.assertEqual(instance.get_short_description(), "test_file.mp3")
         # test not allowed extension
-        instance.audio_file = get_filer_file(file_name="test_file.mp4")
+        instance.audio_file = get_filer_file("test_file.mp4")
         with self.assertRaises(ValidationError):
             instance.clean()
         instance.audio_file = instance.audio_file.delete()
