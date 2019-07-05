@@ -2,12 +2,12 @@
 from cms.api import add_plugin, create_page
 from cms.test_utils.testcases import CMSTestCase
 
+from djangocms_audio.cms_plugins import (
+    AudioFilePlugin, AudioFolderPlugin, AudioPlayerPlugin, AudioTrackPlugin,
+)
+
 from .helpers import get_filer_file
 
-from djangocms_audio.cms_plugins import (
-    AudioPlayerPlugin, AudioFilePlugin,
-    AudioFolderPlugin, AudioTrackPlugin,
-)
 
 class AudioPlayerPluginsTestCase(CMSTestCase):
 
