@@ -107,7 +107,6 @@ class AudioPlayerModelsTestCase(TestCase):
         self.assertEqual(instance.attributes, "{'data-type, 'audio'}")
         self.assertEqual(instance.__str__(), "test_folder")
         self.assertEqual(instance.get_short_description(), "test_folder")
-        self.assertEqual(instance.get_files(), [])
         # case when the folder has been removed
         instance.audio_folder = None
         self.assertEqual(instance.__str__(), "1")
@@ -125,6 +124,12 @@ class AudioPlayerModelsTestCase(TestCase):
             audio_folder=self.folder,
         )
         self.assertEqual(instance.get_files(), [self.audio])
+        self.audio.delete()
+        self.audio = get_filer_file(
+            file_name="test_file.mp4",
+            folder=self.folder
+        )
+        self.assertEqual(instance.get_files(), [])
 
     def test_audio_track_instance(self):
         AudioTrack.objects.create(
