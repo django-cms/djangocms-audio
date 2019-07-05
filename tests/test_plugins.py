@@ -6,7 +6,7 @@ from djangocms_audio.cms_plugins import (
     AudioFilePlugin, AudioFolderPlugin, AudioPlayerPlugin, AudioTrackPlugin,
 )
 
-from .helpers import get_filer_file
+from .helpers import get_filer_file, get_filer_folder
 
 
 class AudioPlayerPluginsTestCase(CMSTestCase):
@@ -119,6 +119,21 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
         self.assertIn(b"<track kind", response.content)
         self.assertNotIn(b"No audio file available.", response.content)
         self.assertContains(response, track_file.label)
+
+        folder = add_plugin(
+            target=parent,
+            placeholder=self.placeholder,
+            plugin_type=AudioFolderPlugin.__name__,
+            language=self.language,
+            audio_folder=get_filer_folder(),
+        )
+        self.page.publish(self.language)
+        self.assertEqual(folder.audio_folder.name, "test_folder")
+
+        with self.login_user_context(self.superuser):
+            response = self.client.get(request_url)
+
+        self.assertContains(response, "No matching audio files were found in the specified folder.")
 
         # cleanup
         audio_file.delete()
