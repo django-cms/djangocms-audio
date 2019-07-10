@@ -27,11 +27,15 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
         self.page.publish(self.language)
         self.placeholder = self.page.placeholders.get(slot="content")
         self.superuser = self.get_superuser()
+        self.audio_file = get_filer_file("test_file.mp3")
+        self.track_file = get_filer_file("test_track.vtt")
 
     def tearDown(self):
         self.page.delete()
         self.home.delete()
         self.superuser.delete()
+        self.audio_file.delete()
+        self.track_file.delete()
 
     def test_player_plugin(self):
         plugin = add_plugin(
@@ -66,8 +70,6 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
         self.assertEqual(plugin.plugin_type, "AudioTrackPlugin")
 
     def test_plugin_structure(self):
-        audio_file = get_filer_file("test_file.mp3")
-        track_file = get_filer_file("test_track.vtt")
         request_url = self.page.get_absolute_url(self.language) + "?toolbar_off=true"
 
         parent = add_plugin(
@@ -89,7 +91,7 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
             placeholder=self.placeholder,
             plugin_type=AudioFilePlugin.__name__,
             language=self.language,
-            audio_file=audio_file,
+            audio_file=self.audio_file,
         )
         self.page.publish(self.language)
         self.assertEqual(child.audio_file.label, "test_file.mp3")
@@ -99,7 +101,7 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
 
         self.assertIn(b"<audio controls", response.content)
         self.assertNotIn(b"No audio file available.", response.content)
-        self.assertContains(response, audio_file.label)
+        self.assertContains(response, self.audio_file.label)
 
         track = add_plugin(
             target=child,
@@ -107,7 +109,7 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
             plugin_type=AudioTrackPlugin.__name__,
             language=self.language,
             kind="subtitles",
-            src=track_file,
+            src=self.track_file,
             srclang=self.language,
         )
         self.page.publish(self.language)
@@ -118,7 +120,7 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
 
         self.assertIn(b"<track kind", response.content)
         self.assertNotIn(b"No audio file available.", response.content)
-        self.assertContains(response, track_file.label)
+        self.assertContains(response, self.track_file.label)
 
         folder = add_plugin(
             target=parent,
@@ -134,7 +136,3 @@ class AudioPlayerPluginsTestCase(CMSTestCase):
             response = self.client.get(request_url)
 
         self.assertContains(response, "No matching audio files were found in the specified folder.")
-
-        # cleanup
-        audio_file.delete()
-        track_file.delete()
