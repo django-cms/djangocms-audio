@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
@@ -29,7 +28,7 @@ class AudioPlayerPlugin(CMSPluginBase):
     ]
 
     def render(self, context, instance, placeholder):
-        context = super(AudioPlayerPlugin, self).render(context, instance, placeholder)
+        context = super().render(context, instance, placeholder)
         context['audio_template'] = instance.template
         return context
 

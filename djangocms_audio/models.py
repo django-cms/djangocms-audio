@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Enables the user to add an "Audio player" plugin that serves as
 a wrapper rendering the player and its options.
@@ -6,20 +5,17 @@ a wrapper rendering the player and its options.
 The "Audio player" plugin allows to add either a single "File" or a reference
 to a "Folder" as children.
 """
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.translation import ugettext
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 from cms.models import CMSPlugin
 
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.file import FilerFileField
 from filer.fields.folder import FilerFolderField
-from six import python_2_unicode_compatible
 
 
 # mp3 is supported by all major browsers
@@ -45,7 +41,6 @@ def get_templates():
     return choices
 
 
-@python_2_unicode_compatible
 class AudioPlayer(CMSPlugin):
     """
     Renders a container around the HTML <audio> elements.
@@ -70,7 +65,6 @@ class AudioPlayer(CMSPlugin):
         return self.label or str(self.pk)
 
 
-@python_2_unicode_compatible
 class AudioFile(CMSPlugin):
     """
     Renders the HTML <audio> element, add params through attributes.
@@ -104,14 +98,14 @@ class AudioFile(CMSPlugin):
     def clean(self):
         if self.audio_file and self.audio_file.extension not in get_extensions():
             raise ValidationError(
-                ugettext('Incorrect file type: {extension}.').format(
+                gettext('Incorrect file type: {extension}.').format(
                     extension=self.audio_file.extension)
             )
 
     def get_short_description(self):
         if self.audio_file_id and self.audio_file.label:
             return self.audio_file.label
-        return ugettext('<file is missing>')
+        return gettext('<file is missing>')
 
     def copy_relations(self, oldinstance):
         # Because we have a ForeignKey, it's required to copy over
@@ -119,7 +113,6 @@ class AudioFile(CMSPlugin):
         self.audio_file = oldinstance.audio_file
 
 
-@python_2_unicode_compatible
 class AudioFolder(CMSPlugin):
     """
     Render files contained in a folder, only get_extensions() are considered.
@@ -155,7 +148,7 @@ class AudioFolder(CMSPlugin):
     def get_short_description(self):
         if self.audio_folder_id and self.audio_folder.name:
             return self.audio_folder.name
-        return ugettext('<folder is missing>')
+        return gettext('<folder is missing>')
 
     def copy_relations(self, oldinstance):
         # Because we have a ForeignKey, it's required to copy over
@@ -163,7 +156,6 @@ class AudioFolder(CMSPlugin):
         self.audio_folder = oldinstance.audio_folder
 
 
-@python_2_unicode_compatible
 class AudioTrack(CMSPlugin):
     """
     Renders the HTML <track> element inside <audio>.
