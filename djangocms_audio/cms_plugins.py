@@ -1,7 +1,6 @@
-from django.utils.translation import gettext_lazy as _
-
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
+from django.utils.translation import gettext_lazy as _
 
 from . import models
 
@@ -33,7 +32,7 @@ class AudioPlayerPlugin(CMSPluginBase):
         return context
 
     def get_render_template(self, context, instance, placeholder):
-        return 'djangocms_audio/{}/audio_player.html'.format(instance.template)
+        return f'djangocms_audio/{instance.template}/audio_player.html'
 
 
 class AudioFilePlugin(CMSPluginBase):
