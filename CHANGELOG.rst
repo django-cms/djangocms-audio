@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Unreleased
+==========
+
+* Added migration from Django 4.2
+
 
 2.0.0 (2020-09-02)
 ==================
