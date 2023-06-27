@@ -66,11 +66,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: coverage-data
-      - name: Debug filesystem
-        run: pwd && ls -al
+
       - name: Combine coverage and fail if it's <100%
         run: |
-          python -m coverage combine
+#          python -m coverage combine --debug pathmap
           python -m coverage html --skip-covered --skip-empty
           python -m coverage report --fail-under=100
 
