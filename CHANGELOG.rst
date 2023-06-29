@@ -5,7 +5,11 @@ Changelog
 Unreleased
 ==========
 
-* Added migration from Django 4.2
+
+2.1.0 (2023-06-29)
+==================
+
+* Added support for Django 4.2
 
 
 2.0.0 (2020-09-02)
