@@ -16,7 +16,7 @@ class Form(forms.BaseForm):
     )
 
     def clean(self):
-        data = super(Form, self).clean()
+        data = super().clean()
 
         # older versions of this addon had a bug where the values would be
         # saved to settings.json as a list instead of a string.
