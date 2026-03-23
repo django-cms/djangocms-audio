@@ -1,3 +1,6 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+
 [tool.ruff]
 exclude = [
     ".env",
