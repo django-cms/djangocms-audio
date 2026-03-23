@@ -4,8 +4,8 @@ from setuptools import find_packages, setup
 from djangocms_audio import __version__
 
 REQUIREMENTS = [
-    'django-cms>=3.7',
-    'django-filer>=1.7',
+    'django-cms>=3.11',
+    'django-filer>=2.2',
     'djangocms-attributes-field>=1'
 ]
 
@@ -18,21 +18,21 @@ CLASSIFIERS = [
     'Operating System :: OS Independent',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: 3.14',
     'Framework :: Django',
-    'Framework :: Django :: 3.2',
-    'Framework :: Django :: 4.0',
     'Framework :: Django :: 4.2',
+    'Framework :: Django :: 5.0',
+    'Framework :: Django :: 5.1',
+    'Framework :: Django :: 5.2',
+    'Framework :: Django :: 6.0',
     'Framework :: Django CMS',
-    'Framework :: Django CMS :: 3.7',
-    'Framework :: Django CMS :: 3.8',
-    'Framework :: Django CMS :: 3.9',
-    'Framework :: Django CMS :: 3.10',
     'Framework :: Django CMS :: 3.11',
+    'Framework :: Django CMS :: 4.1',
+    'Framework :: Django CMS :: 5.0',
     'Topic :: Internet :: WWW/HTTP',
     'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     'Topic :: Software Development',
