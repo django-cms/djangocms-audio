@@ -24,4 +24,4 @@ jobs:
           pip install ruff
       - name: Run Ruff
         run: |
-          ruff djangocms_audio
+          ruff check djangocms_audio
