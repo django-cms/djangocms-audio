@@ -3,7 +3,11 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from djangocms_audio.models import (
-    AudioFile, AudioFolder, AudioPlayer, AudioTrack, get_extensions,
+    AudioFile,
+    AudioFolder,
+    AudioPlayer,
+    AudioTrack,
+    get_extensions,
     get_templates,
 )
 
