@@ -63,21 +63,22 @@ include = ["djangocms_audio", "djangocms_audio.*"]
 DJANGO_SETTINGS_MODULE = "tests.settings"
 
 [tool.ruff]
-exclude = [
-    ".env",
-    ".venv",
-    "**/migrations/**",
-]
-lint.ignore = [
-    "E501",  # line too long
-    "F403",  # 'from module import *' used; unable to detect undefined names
-    "E701",  # multiple statements on one line (colon)
-    "F401",  # module imported but unused
-]
 line-length = 119
-lint.select = [
-    "I",
-    "E",
-    "F",
-    "W",
+extend-exclude = [
+  "**/migrations/**",
+  ".env",
+]
+
+[tool.ruff.lint]
+select = [
+  "I",
+  "E",
+  "F",
+  "W",
+]
+ignore = [
+  "E501",  # line too long
+  "F403",  # 'from module import *' used; unable to detect undefined names
+  "E701",  # multiple statements on one line (colon)
+  "F401",  # module imported but unused
 ]

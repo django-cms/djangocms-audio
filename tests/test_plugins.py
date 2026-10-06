@@ -2,7 +2,10 @@ from cms.api import add_plugin
 from cms.test_utils.testcases import CMSTestCase
 
 from djangocms_audio.cms_plugins import (
-    AudioFilePlugin, AudioFolderPlugin, AudioPlayerPlugin, AudioTrackPlugin,
+    AudioFilePlugin,
+    AudioFolderPlugin,
+    AudioPlayerPlugin,
+    AudioTrackPlugin,
 )
 
 from .fixtures import TestFixture
